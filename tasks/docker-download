@@ -1,0 +1,17 @@
+    tasks:
+
+      # docker login
+      #- name: Log into ADM private registry
+      #  shell: |
+      #    echo "Eir2oocu" | docker login --username support --password-stdin "{{ DOCKER_REGISTRY }}"
+
+      # download last version or specific version of docker image (docker pull)
+      - name: pull ClickHouse image
+        shell: |
+          docker pull "{{CH_IMAGE | default('yandex/clickhouse-server') }}"
+
+
+      # download last version or specific version of docker image (docker pull)
+      - name: pull ZooKeeper image
+        shell: |
+          docker pull "{{ZK_IMAGE | default('zookeeper') }}"
